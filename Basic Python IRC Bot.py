@@ -6,7 +6,7 @@ authlist = "Donkeymasher"
 #People who can give the bot commands
 
 bot_owner = 'Donkeymasher'
-#Owner of the bot
+#Owner of the bot -- This doesn't matter for twitch --
 
 nick = 'Goldencarrotbot'
 #Name of the bot (Must be a twitch account)
@@ -17,14 +17,14 @@ channel = '#donkeymasher'
 server = 'irc.twitch.tv'
 #Server where bot will be working
 
-password = 'oauth:r00615g11hijjxchkz9c6gw5nyp3pam'
+password = ''
 #Authentication key
 
 queue = 0
-#sets variable for anti-spam queue functionality
+#sets variable for anti-spam queue functionality -- I don't know if this works --
 
 irc = socket.socket()
-#internet stuff don't mess with
+#basically this calls the socket function which you pass your server and port into look below.
 
 irc.connect((server, 6667))
 #connects to the server

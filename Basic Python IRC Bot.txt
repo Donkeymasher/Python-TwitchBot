@@ -1,0 +1,20 @@
+The bot itself works of the basis of scanning the chat, if it detects something perhaps a banned word (Swear word) which is done by this segment of code here:
+
+-- c# code found in Twitch-bot.cs line 39 --
+ for (buf = input.ReadLine(); ; buf = input.ReadLine())  <- this for loop gets the output from server (twitch chat) and essentially checks that it doesn't contain any thing
+                                                         <- by passing the buf string variable though a series of commands which are looking for something and can respond accordingly. 
+-- c# end of code -- 
+
+An example of this ability is seen here in the PingPong stream command: 
+ 
+-- c# code found in StreamCommands.cs line 11-19 --
+ public static void PingPong(string buf, TextWriter output)
+        {
+            //Send pong reply to any ping messages
+            if (buf.Contains("PING"))								<- here the buf variable is checks to see if it contains "PING" 
+            {
+                output.Write(buf.Replace("PING", "PONG") + "\r\n");	<- if it happens to the the word "PING" is replaced with "PONG"
+                output.Flush();										<- the console buffer (basically where text is stored before being used) is flushed to send the new message to chat 
+            }
+        }															<- if the word "PING" doesn't appear nothing happens the bot then checks against another method like this. 
+-- c# end of code --
